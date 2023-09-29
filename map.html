@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         #map {
-            width: 1353px;
+            width: 1394px;
             height: 823px;
         }
         </style>
@@ -55,7 +55,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[41.50660079539419,-4.660366395717223],[41.51067827408353,-4.65140644345012]]);
+        }).fitBounds([[41.49510325705413,-4.680882763103062],[41.52772168827876,-4.607027819767441]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -117,6 +117,10 @@
                     <tr>\
                         <th scope="row">Codigo de malla de vulnerabilidad</th>\
                         <td>' + (feature.properties['COD10X10'] !== null ? autolinker.link(feature.properties['COD10X10'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Figuras afectadas</th>\
+                        <td>' + (feature.properties['Figuras_afec'] !== null ? autolinker.link(feature.properties['Figuras_afec'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -249,6 +253,12 @@
                 },
                 mouseover: highlightFeature,
             });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_Limitedeespacionaturalprotegido_3_0() {
@@ -262,7 +272,7 @@
                 weight: 4.0, 
                 fill: true,
                 fillOpacity: 0.4,
-                fillColor: 'rgba(119,194,252,1.0)',
+                fillColor: 'rgba(125,197,252,1.0)',
                 interactive: false,
             }
         }

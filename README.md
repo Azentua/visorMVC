@@ -1,5 +1,5 @@
 # visorMVC
-Este repositorio ha sido creado para alojar el visor de cartografia de Metrovacesa.
+Este repositorio ha sido creado para alojar el visor de cartografia de MVC.
 
 Con este mapa interactivo es posible:
 - controlar la visibilidad de las capas.
